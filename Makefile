@@ -1,4 +1,4 @@
-BOARD=zero
+BOARD=SAMD21E15B
 -include Makefile.user
 include boards/$(BOARD)/board.mk
 CC=arm-none-eabi-gcc
@@ -50,9 +50,12 @@ INCLUDES = -I. -I./inc -I./inc/preprocessor
 INCLUDES += -I./boards/$(BOARD) -Ilib/cmsis/CMSIS/Include -Ilib/usb_msc
 INCLUDES += -I$(BUILD_PATH)
 
-
 ifeq ($(CHIP_FAMILY), samd21)
+ifeq ($(INCLUDE_SAMD21B), 1)
+INCLUDES += -Ilib/samd21/samd21b/include
+else
 INCLUDES += -Ilib/samd21/samd21a/include/
+endif
 endif
 
 ifeq ($(CHIP_FAMILY), samd51)

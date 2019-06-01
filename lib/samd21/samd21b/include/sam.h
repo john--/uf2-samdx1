@@ -30,6 +30,8 @@
 
 #if   defined(__SAMD21E15BU__) || defined(__ATSAMD21E15BU__)
   #include "samd21e15bu.h"
+#elif defined(__SAMD21E15B__) || defined(__ATSAMD21E15B__)
+  #include "samd21e15b.h"
 #elif defined(__SAMD21E16BU__) || defined(__ATSAMD21E16BU__)
   #include "samd21e16bu.h"
 #else
